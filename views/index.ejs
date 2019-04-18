@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NodeJS and Liara file uploading example</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-grey flex justify-center">
+  <form action="/upload" method="post" enctype="multipart/form-data" class="bg-white p-4 shadow w-1/2 rounded mx-auto my-auto">
+    <p>
+      Upload your file:
+      <input type="file" name="file" />
+    </p>
+
+    <button class="bg-blue text-white py-2 px-4 rounded mt-2 mb-4">Upload</button>
+
+    <% for (const file of files) { %>
+      <div class="bg-grey-light mt-2 p-4 rounded">
+        File <%= file.Key %> | <a href="/download/<%= file.Key %>">Download</a>
+      </div>
+    <% } %>
+  </form>
+</body>
+</html>
